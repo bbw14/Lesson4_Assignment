@@ -43,7 +43,7 @@
               </label></p>
           <p><label for="wageInput">
             Hourly Wage:
-            <input type="text" id="wageInput" name="wage" />
+            <input type="text" id="rate" name="wage" />
               </label></p>
         </fieldset>                 
           
@@ -79,7 +79,7 @@
        <script>
            function myFunction(){
                //decalre variables of employee information
-               var lastname = document.getElementById("lnameImput");
+               var lastname = document.getElementById("lnameInput");
                var firstname = document.getElementById("fnameInput");
                var hours = document.getElementById("hoursInput");
                var empName = firstname.value + " " + lastname.value;
@@ -91,13 +91,9 @@
                  var netPay;
                  var fedTaxWith;
                  var stateTaxWith;
-                 var totDeductions;
+                 var totalDeductions;
            
-         
-    
-         }//end of myFunction
-           
-        //Declare Constants (withholding rates)
+          //Declare Constants (withholding rates)
              const FED_RATE = 0.15; //federal rate
              const STATE_RATE = 0.034; //state rate  
            
@@ -115,10 +111,10 @@
              stateTaxWith = grossPay * STATE_RATE;
            
          //Calculate Total Deductions
-             totDeductions = fedTaxWith + stateTaxWith;  
+             totalDeductions = fedTaxWith + stateTaxWith;  
            
          //Calculate Net Pay
-             netPay = grossPay - totDeductions; 
+             netPay = grossPay - totalDeductions; 
            
          //Display Employee Information
              document.getElementById("firstlast").innerHTML = "Employee Name: " + empName.toUpperCase();
@@ -126,11 +122,15 @@
              document.getElementById("hourlyWage").innerHTML = "Hourly Wage Rate: " + rate.value;
           
          //Display Payroll Calculation Results
-             document.gitElementById("grosspay").innerHTML = "Gross Pay: " + grossPay.toFixed(2);
+             document.getElementById("grosspay").innerHTML = "Gross Pay: " + grossPay.toFixed(2);
              document.getElementById("fedwith").innerHTML = "Federal Income Tax: " + fedTaxWith.toFixed(2);
              document.getElementById("statewith").innerHTML = "State Income Tax: " + stateTaxWith.toFixed(2);
            document.getElementById("totaled").innerHTML = "Total Deductions: " + totalDeductions.toFixed(2);
            document.getElementById("netpay").innerHTML = "Net Pay: " + netPay.toFixed(2);
+    
+         }//end of myFunction
+           
+       
           </script>
  
      </form>
